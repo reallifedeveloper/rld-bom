@@ -1,0 +1,26 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate release tag
+      id: generate_release_tag
+      uses: alexvingg/next-release-tag@v1.0.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tag_prefix: ''
+    - name: Create release
+      uses: reallifedeveloper/github-workflows/.github/workflows/release.yaml@main
+      with:
+        release_version: ${{ steps.generate_release_tag.outputs.release_tag }}
