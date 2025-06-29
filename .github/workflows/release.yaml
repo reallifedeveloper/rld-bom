@@ -13,6 +13,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     steps:
     - name: Generate release tag
@@ -24,5 +26,4 @@ jobs:
     - name: Create release
       uses: reallifedeveloper/github-workflows/.github/actions/release@main
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         release-version: ${{ steps.generate_release_tag.outputs.release_tag }}
