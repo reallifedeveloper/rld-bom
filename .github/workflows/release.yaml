@@ -23,4 +23,4 @@ jobs:
     - name: Create release
       uses: reallifedeveloper/github-workflows/.github/actions/release@main
       with:
-        release_version: ${{ steps.generate_release_tag.outputs.release_tag }}
+        release-version: ${{ steps.generate_release_tag.outputs.release_tag }}
