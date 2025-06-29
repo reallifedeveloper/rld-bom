@@ -7,7 +7,7 @@
 
     <groupId>com.reallifedeveloper</groupId>
     <artifactId>rld-bom</artifactId>
-    <version>X-SNAPSHOT</version>
+    <version>20250629.1</version>
     <packaging>pom</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
