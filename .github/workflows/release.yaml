@@ -30,4 +30,3 @@ jobs:
       uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
       with:
         release-version: ${{ steps.generate_release_tag.outputs.release_tag }}
-        java-version:
