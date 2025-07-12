@@ -5,14 +5,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.reallifedeveloper</groupId>
+    <parent>
+        <groupId>com.reallifedeveloper</groupId>
+        <artifactId>rld-root-pom</artifactId>
+        <version>3</version>
+    </parent>
+
     <artifactId>rld-bom</artifactId>
     <version>X-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>${project.groupId}:${project.artifactId}</name>
     <description>Bill of Materials with versions of dependencies used in RealLifeDeveloper projects.</description>
-    <url>htts://reallifedeveloper.com/</url>
 
     <properties>
         <spring.version>6.2.7</spring.version>
@@ -45,7 +48,6 @@
         <geotools.version>33.1</geotools.version>
         <markdown4j.version>2.2-cj-1.1</markdown4j.version>
         <postgresql.version>42.7.7</postgresql.version>
-        <flyway.version>11.2.0</flyway.version>
         <hsqldb.version>2.7.4</hsqldb.version>
         <rabbitmq.version>5.25.0</rabbitmq.version>
 
@@ -61,7 +63,6 @@
 
         <lombok.version>1.18.38</lombok.version>
         <checkerframework.version>3.49.4</checkerframework.version>
-        <soapui.version>5.8.0</soapui.version>
         <wiremock.version>3.13.0</wiremock.version>
     </properties>
 

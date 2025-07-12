@@ -10,6 +10,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,6 +27,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         tag_prefix: ''
     - name: Create release
-      uses: reallifedeveloper/github-workflows/.github/actions/release@main
+      uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
       with:
         release-version: ${{ steps.generate_release_tag.outputs.release_tag }}
+        java-version:
