@@ -25,8 +25,13 @@ jobs:
       uses: alexvingg/next-release-tag@v1.0.4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        tag_prefix: ''
+        tag_prefix: 'v'
+    - name: Remove leading 'v' from version
+      id: generate_release_version
+      run: |
+        release_tag=${{ steps.generate_release_tag.outputs.release_tag }}
+        echo "release_version=${release_tag#v}" >> $GITHUB_OUTPUT
     - name: Create release
       uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
       with:
-        release-version: ${{ steps.generate_release_tag.outputs.release_tag }}
+        release-version: ${{ steps.generate_release_version.outputs.release_version }}
