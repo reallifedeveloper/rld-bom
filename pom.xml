@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.reallifedeveloper</groupId>
         <artifactId>rld-root-pom</artifactId>
-        <version>8</version>
+        <version>9</version>
     </parent>
 
     <artifactId>rld-bom</artifactId>
@@ -55,8 +55,10 @@
         <junit.version>5.13.1</junit.version>
         <junit4.version>4.13.2</junit4.version>
         <dbunit.version>3.0.0</dbunit.version>
+        <xmlunit.version>2.10.3</xmlunit.version>
         <mockito.version>5.18.0</mockito.version>
         <easymock.version>5.6.0</easymock.version>
+        <wiremock.version>3.13.0</wiremock.version>
         <equalsverifier.version>4.0.5</equalsverifier.version>
         <fitnesse.version>20250223</fitnesse.version>
         <selenium.version>4.34.0</selenium.version>
@@ -64,7 +66,8 @@
 
         <lombok.version>1.18.38</lombok.version>
         <checkerframework.version>3.49.5</checkerframework.version>
-        <wiremock.version>3.13.0</wiremock.version>
+        <errorprone.version>2.40.0</errorprone.version>
+        <nullaway.version>0.12.7</nullaway.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +115,11 @@
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-core</artifactId>
+                <version>${glassfish-jaxb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
                 <version>${glassfish-jaxb.version}</version>
             </dependency>
             <dependency>
@@ -243,16 +251,6 @@
                 <version>${rabbitmq.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.checkerframework</groupId>
-                <artifactId>checker-qual</artifactId>
-                <version>${checkerframework.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
                 <version>${junit.version}</version>
@@ -273,6 +271,17 @@
                 <groupId>org.dbunit</groupId>
                 <artifactId>dbunit</artifactId>
                 <version>${dbunit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.xmlunit</groupId>
+                <artifactId>xmlunit-core</artifactId>
+                <version>${xmlunit.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.wiremock</groupId>
@@ -308,6 +317,31 @@
                 <groupId>nl.jqno.equalsverifier</groupId>
                 <artifactId>equalsverifier</artifactId>
                 <version>${equalsverifier.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker</artifactId>
+                <version>${checkerframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>${checkerframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.errorprone</groupId>
+                <artifactId>error_prone_core</artifactId>
+                <version>${errorprone.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uber.nullaway</groupId>
+                <artifactId>nullaway</artifactId>
+                <version>${nullaway.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
