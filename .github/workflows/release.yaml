@@ -33,7 +33,7 @@ jobs:
         echo "release_version=${release_tag#v}" >> $GITHUB_OUTPUT
   release:
     needs: prepare-release
-    uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
+    uses: reallifedeveloper/github-workflows/.github/workflows/maven-release.yaml@main
     with:
       release-version: ${{ needs.prepare-release.outputs.release-version }}
     secrets: inherit
