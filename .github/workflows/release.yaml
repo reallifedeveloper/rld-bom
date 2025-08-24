@@ -35,3 +35,4 @@ jobs:
       uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
       with:
         release-version: ${{ steps.generate_release_version.outputs.release_version }}
+      secrets: inherit
