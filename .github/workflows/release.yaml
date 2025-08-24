@@ -16,6 +16,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    secrets: inherit
     permissions:
       contents: write
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
@@ -35,4 +36,3 @@ jobs:
       uses: reallifedeveloper/github-workflows/.github/actions/maven-release@main
       with:
         release-version: ${{ steps.generate_release_version.outputs.release_version }}
-      secrets: inherit
