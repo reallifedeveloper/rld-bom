@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>rld-bom</artifactId>
-    <version>X-SNAPSHOT</version>
+    <version>20260215.1</version>
     <packaging>pom</packaging>
 
     <name>RealLifeDeveloper Bill of Materials</name>
